@@ -1,7 +1,13 @@
 def send_email(message,recipient,sender = 'university.help@gmail.com'):
 #проверка правильности введенных адресов
-    s_right = sender.rsplit(sep='.', maxsplit=1)[1]
-    r_right = recipient.rsplit(sep='.', maxsplit=1)[1]
+    if len(sender.rsplit(sep='.', maxsplit=1)) > 1:
+        s_right = sender.rsplit(sep='.', maxsplit=1)[1]
+    else:
+        s_right = ''
+    if len(recipient.rsplit(sep='.', maxsplit=1)) > 1:
+        r_right = recipient.rsplit(sep='.', maxsplit=1)[1]
+    else:
+        r_right = ''
     if s_right == 'com' or s_right == 'ru' or s_right == 'net':
         s_right = sender.find('@') != -1
     else:
