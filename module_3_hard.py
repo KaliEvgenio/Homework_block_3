@@ -5,6 +5,11 @@ def calculate_structure_sum(same_args):
         return same_args
     elif t == str:
         return len(same_args)
+    elif t == bool:
+        if same_args:
+            return 1
+        else:
+            return 0
     elif t in (list, tuple, set):
         for i in same_args:
             res+=calculate_structure_sum(i)
